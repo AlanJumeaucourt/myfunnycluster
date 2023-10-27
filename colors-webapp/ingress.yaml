@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lightpink
+  namespace: colors-webapp
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: colors.myfunnycluster.dynamic-dns.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: lightpink
+            port:
+              number: 8000
+        path: /pink
+        pathType: Exact
+  tls:
+  - hosts:
+    - colors.myfunnycluster.dynamic-dns.net
+    secretName: colors

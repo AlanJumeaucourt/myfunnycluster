@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: lightpink
+  name: lightpink
+  namespace: colors-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lightpink
+  template:
+    metadata:
+      labels:
+        app: lightpink
+    spec:
+      containers:
+      - image: jpetazzo/webcolor
+        name: lightpink
+        ports:
+        - containerPort: 8000
+          protocol: TCP
