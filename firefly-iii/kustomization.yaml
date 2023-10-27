@@ -1,0 +1,16 @@
+resources:
+  - ingress.yaml
+  - front-deployment.yaml
+  - front-persistentVolumeClaim.yaml
+  - front-service.yaml
+  - mysql-deployment.yaml
+  - mysql-persistentVolumeClaim.yaml
+  - mysql-service.yaml
+secretGenerator:
+- name: firefly-iii-secrets
+  literals:
+  - db_password=CHANGEMECHANGEME
+  - app_key=CHANGEMECHANGEMECHANGEMECHANGEME
+  - access_token=CHANGEMECHANGEMECHANGEME...
+  - static_cron_token=CHANGE12CHAR
+  namespace: firefly-iii
