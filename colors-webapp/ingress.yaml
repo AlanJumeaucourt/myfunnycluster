@@ -17,7 +17,7 @@ spec:
             name: lightpink
             port:
               number: 8000
-        path: /pink
+        path: /hercule027
         pathType: Exact
   tls:
   - hosts:
